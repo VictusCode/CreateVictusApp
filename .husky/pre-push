@@ -1,0 +1,12 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+cd superset-frontend
+
+npm run lint -- --quiet
+
+if [ $? -ne 0 ]; then
+  echo "🛑 .js/.jsx/.ts/.tsx inting failed, aborting commit."
+  exit 1
+fi
+npm run lint
