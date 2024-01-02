@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "ES6",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react-jsx",
+        "baseUrl": "src",
+        "paths": {
+            "@app/*": [
+                "./app/*"
+            ],
+            "@modules/*": [
+                "./modules/*"
+            ],
+            "@pages/*": [
+                "./pages/*"
+            ],
+            "@shared/*": [
+                "./shared/*"
+            ],
+            "@ui/*": [
+                "./ui/*"
+            ],
+        },
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "commonjs"
+        }
+    },
+    "include": [
+        "src/**/*",
+        "configs/tests/setupTest.ts"
+    ],
+}
