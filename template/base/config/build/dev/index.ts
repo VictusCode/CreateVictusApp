@@ -25,9 +25,7 @@ app.get('/subscribe', (_, res) => {
   });
 });
 
-function sendMessage() {
-  emitter.emit('refresh', 'message');
-}
+const sendMessage = () => emitter.emit('refresh', 'message');
 
 app.listen(PORT, () => console.log('server started on http://localhost:' + PORT));
 

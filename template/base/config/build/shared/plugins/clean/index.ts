@@ -1,7 +1,7 @@
 import { Plugin } from 'esbuild';
 import { rm } from 'fs/promises';
 
-const CleanPlugin: Plugin = {
+const cleanPlugin: Plugin = {
   name: 'CleanPlugin',
   setup(build) {
     build.onStart(async () => {
@@ -15,4 +15,4 @@ const CleanPlugin: Plugin = {
   },
 };
 
-export { CleanPlugin };
+export { cleanPlugin };

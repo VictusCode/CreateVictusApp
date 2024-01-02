@@ -1,14 +1,15 @@
 import { BuildOptions } from 'esbuild';
 import { resolveRoot } from './utils/resolveRoot';
-import { CleanPlugin } from './plugins/clean';
+import { cleanPlugin } from './plugins/clean';
+import { htmlPlugin } from '@craftamap/esbuild-plugin-html';
 
 const mode = process.env.MODE || 'development';
 
 const isDev = mode === 'development';
 
 const config: BuildOptions = {
-  outdir: resolveRoot('build'),
-  entryPoints: [resolveRoot('src', 'index.jsx')],
+  outdir: resolveRoot('dist'),
+  entryPoints: [resolveRoot('src', 'index.tsx')],
   entryNames: '[dir]/bundle.[name]-[hash]',
   allowOverwrite: true,
   bundle: true,
@@ -22,9 +23,16 @@ const config: BuildOptions = {
     '.jpg': 'file',
   },
   plugins: [
-    CleanPlugin,
-    HTMLPlugin({
-      title: 'App',
+    cleanPlugin,
+    htmlPlugin({
+      files: [
+        {
+          entryPoints: [resolveRoot('src', 'index.tsx')],
+          filename: 'index.html',
+          title: 'VictusCode App',
+          favicon: resolveRoot('public', 'logo.ico'),
+        },
+      ],
     }),
   ],
 };
