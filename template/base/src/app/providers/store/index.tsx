@@ -6,4 +6,4 @@ type RecoilProviderProps = {
 
 const RecoilProvider = ({ children }: RecoilProviderProps) => <RecoilRoot>{children}</RecoilRoot>;
 
-export default RecoilProvider;
+export { RecoilProvider };
