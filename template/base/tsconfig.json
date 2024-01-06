@@ -1,69 +1,62 @@
 {
-    "compileOnSave": true,
-    "include": [
-      "src/**/*",
-      "@types/**/*"
+  "compileOnSave": true,
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "build"
+  ],
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
-    "exclude": [
-      "node_modules",
-      "**/node_modules/*",
-      "build"
-    ],
-    "references": [
-      {
-        "path": "./tsconfig.node.json"
-      }
-    ],
-    "compilerOptions": {
-      "outDir": "./dist/",
-      "target": "esnext",
-      "module": "esnext",
-      "moduleResolution": "node",
-      "allowSyntheticDefaultImports": true,
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "jsx": "react-jsx",
-      "allowJs": true,
-      "checkJs": false,
-      "strict": true,
-      "noFallthroughCasesInSwitch": true,
-      "noImplicitAny": false,
-      "strictNullChecks": true,
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
+    "sourceMap": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "disableSizeLimit": true,
+    "forceConsistentCasingInFileNames": false,
+    "incremental": true,
+    "removeComments": true,
+    "noEmit": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@app/*": [
+        "./app/*"
       ],
-      "sourceMap": true,
-      "skipDefaultLibCheck": true,
-      "skipLibCheck": true,
-      "isolatedModules": true,
-      "disableSizeLimit": true,
-      "forceConsistentCasingInFileNames": false,
-      "incremental": true,
-      "removeComments": true,
-      "noEmit": true,
-      "baseUrl": "./src",
-      "paths": {
-        "@app/*": [
-          "./app/*"
-        ],
-        "@modules/*": [
-          "./modules/*"
-        ],
-        "@pages/*": [
-          "./pages/*"
-        ],
-        "@shared/*": [
-          "./shared/*"
-        ],
-        "@ui/*": [
-          "./ui/*"
-        ],
-      },
-      "typeRoots": [
-        "@types",
-        "./node_modules/@types"
-      ]
+      "@modules/*": [
+        "./modules/*"
+      ],
+      "@pages/*": [
+        "./pages/*"
+      ],
+      "@shared/*": [
+        "./shared/*"
+      ],
+      "@ui/*": [
+        "./ui/*"
+      ],
     },
-  }
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+}

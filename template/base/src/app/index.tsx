@@ -1,8 +1,6 @@
+import { Router } from './providers/router';
+
 /* eslint-disable i18next/no-literal-string */
-const App = () => (
-  <div>
-    <h1>App</h1>
-  </div>
-);
+const App = () => <Router />;
 
 export { App };

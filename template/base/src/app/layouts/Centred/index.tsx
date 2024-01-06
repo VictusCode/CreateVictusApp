@@ -7,8 +7,10 @@ type Props = {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  flex-wrap: nowrap;
   justify-content: center;
+  align-items: center;
+  align-content: center;
   height: 100%;
 `;
 

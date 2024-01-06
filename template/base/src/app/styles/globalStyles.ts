@@ -18,6 +18,10 @@ const GlobalStyles = createGlobalStyle`
 		-webkit-text-size-adjust: 100%;
 	}
 
+	#root {
+		height: 100vh;
+	}
+
 	* {
 		margin: 0;
 		padding: 0;
@@ -33,10 +37,6 @@ const GlobalStyles = createGlobalStyle`
 		outline: none;
 		margin: 0;
 		font: inherit;
-	}
-
-	body {
-		min-height: 100vh;
 	}
 
 	:root {

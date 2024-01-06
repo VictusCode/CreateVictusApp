@@ -4,6 +4,6 @@ type RecoilProviderProps = {
   children: React.ReactNode;
 };
 
-const RecoilProvider = ({ children }: RecoilProviderProps) => <RecoilRoot>{children}</RecoilRoot>;
+const StoreProvider = ({ children }: RecoilProviderProps) => <RecoilRoot>{children}</RecoilRoot>;
 
-export { RecoilProvider };
+export { StoreProvider };
