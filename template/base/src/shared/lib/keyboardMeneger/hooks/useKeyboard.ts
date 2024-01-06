@@ -1,6 +1,6 @@
 import { useCallback, useRef, useSyncExternalStore } from 'react';
-import { CallbackType, WrappedCallbackType, KeyType } from '../types';
 import { addCallback } from '../core';
+import { CallbackType, KeyType, WrappedCallbackType } from '../types';
 
 type Props = {
   key: KeyType;

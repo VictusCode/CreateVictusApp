@@ -1,6 +1,6 @@
-import { getOrCreateQueue, allQueuesAreEmpty } from './queue';
+import { KeyType, QueueType, WrappedCallbackRefType } from '../types';
 import { addEventListener, removeEventListener } from './event';
-import { WrappedCallbackRefType, QueueType, KeyType } from '../types';
+import { allQueuesAreEmpty, getOrCreateQueue } from './queue';
 
 type RemoveCallbackProps = {
   queue: QueueType;

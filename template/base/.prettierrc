@@ -10,7 +10,7 @@
   "bracketSpacing": true,
   "bracketSameLine": true,
   "endOfLine": "lf",
-  "importOrder": ["^react(.*)", "<THIRD_PARTY_MODULES>", "^[./|~/]"],
+  "importOrder": ["^react(.*)", "^@/", "<THIRD_PARTY_MODULES>", "^[./|~/]"],
   "importOrderBuiltinModulesToTop": true,
   "importOrderCaseInsensitive": true,
   "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
@@ -18,7 +18,5 @@
   "importOrderCombineTypeAndValueImports": true,
   "importOrderSeparation": false,
   "importOrderSortSpecifiers": true,
-  "plugins": [
-    "@trivago/prettier-plugin-sort-imports"
-  ]
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

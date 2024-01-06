@@ -1,5 +1,8 @@
 {
   "homePage": {
     "title": "Create Victus App"
+  },
+  "loadingPage": {
+    "title": "Завантаження..."
   }
 }

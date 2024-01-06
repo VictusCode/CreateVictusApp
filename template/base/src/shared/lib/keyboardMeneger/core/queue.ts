@@ -1,4 +1,4 @@
-import { QueueType, KeyType, WrappedCallbackRefType } from '../types';
+import { KeyType, QueueType, WrappedCallbackRefType } from '../types';
 
 const keyToQueue: Record<KeyType, QueueType> = {};
 
