@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
 		font-weight: 400;
 
 		color-scheme: light;
-		color: var(--primary-color);
+		color: var(--secondary-color);
 		background-color: var(--bg-color);
 
 		font-synthesis: none;

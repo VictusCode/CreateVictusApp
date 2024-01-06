@@ -1,6 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Centred } from '@app/layouts/Centred';
-import { t } from 'i18next';
 
-const Loading = () => <Centred>{t('loadingPage.title')}</Centred>;
+const Loading = () => {
+  const { t } = useTranslation();
+
+  return <Centred>{t('loadingPage.title')}</Centred>;
+};
 
 export { Loading };
