@@ -3,7 +3,6 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    jest: true,
   },
   extends: [
     'eslint:recommended',
@@ -37,13 +36,11 @@ module.exports = {
   },
   globals: {
     IS_DEV: true,
+    vi: true,
+    vitest: true,
   },
   overrides: [
     {
-      files: ['**/src/**/*.test.{ts,tsx}'],
-      env: {
-        jest: true,
-      },
       rules: {
         'i18next/no-literal-string': 'off',
       },

@@ -1,11 +1,12 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { vi } from 'vitest';
 import { useKeyboard } from '../index';
 import { keys } from './constants';
 
 describe('[keyboardManager] base', () => {
   it.each(keys)('should call key callback once', async (key) => {
-    const callback = jest.fn();
+    const callback = vi.fn();
 
     renderHook(() =>
       useKeyboard({
@@ -23,7 +24,7 @@ describe('[keyboardManager] base', () => {
   });
 
   it.each(keys)('should call key callback multiple times', async (key) => {
-    const callback = jest.fn();
+    const callback = vi.fn();
 
     renderHook(() =>
       useKeyboard({
@@ -43,7 +44,7 @@ describe('[keyboardManager] base', () => {
   });
 
   it.each(keys)('should not call key callback when hook is unmounted', async (key) => {
-    const callback = jest.fn();
+    const callback = vi.fn();
 
     const { unmount } = renderHook(() =>
       useKeyboard({
@@ -72,7 +73,7 @@ describe('[keyboardManager] base', () => {
   });
 
   it.each(keys)('should not call key callback when hook is unmounted', async (key) => {
-    const callback = jest.fn();
+    const callback = vi.fn();
 
     const { unmount } = renderHook(() =>
       useKeyboard({
@@ -102,8 +103,8 @@ describe('[keyboardManager] base', () => {
   });
 
   it.each(keys)('Should call callback passed in the last render', async (key) => {
-    const callback1 = jest.fn();
-    const callback2 = jest.fn();
+    const callback1 = vi.fn();
+    const callback2 = vi.fn();
 
     const { rerender } = renderHook(
       ({ callback }) =>

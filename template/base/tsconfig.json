@@ -57,6 +57,14 @@
     },
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
+    "types": [
+      "jest",
+    ],
   },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
