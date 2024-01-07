@@ -1,4 +1,6 @@
- <img src="./public/bigLogo.png"/>
+# Victus Frontend
+
+ <img src="./public/banner.png"/>
 <details open><summary>Stack</summary>
     <img src="https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black"/>
     <img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white"/>
@@ -15,37 +17,37 @@
     <img src="https://img.shields.io/badge/ESLint-4B32C3.svg?style=for-the-badge&logo=ESLint&logoColor=white"/>
 </details>
 
-# Install
+## Install
 
 ```bash
 pnpm i
 ```
 
-# Usage
+## Usage
 
 ```bash
 pnpm dev
 ```
 
-# Build
+## Build
 
 ```bash
 pnpm build
 ```
 
-# Test
+## Test
 
 ```bash
 pnpm test
 ```
 
-# Lint
+## Lint
 
 ```bash
 pnpm lint
 ```
 
-# Format
+## Format
 
 ```bash
 pnpm format

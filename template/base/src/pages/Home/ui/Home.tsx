@@ -1,10 +1,12 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Centred } from '@app/layouts/Centred';
+import { useDarkMode } from '@shared/lib/darkMode';
 import styled from 'styled-components';
 
 const BigLogo = styled.img`
   width: 50%;
-  padding-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-m);
 `;
 
 const StackList = styled.div`
@@ -24,9 +26,13 @@ const StackList = styled.div`
 
 const Home = () => {
   const { t } = useTranslation();
+  const [isDarkMode] = useDarkMode();
+
+  const bannerSrc = useMemo(() => (isDarkMode ? '/bannerDark.png' : '/bannerLight.png'), [isDarkMode]);
+
   return (
     <Centred>
-      <BigLogo src='./bigLogo.png' alt={t('homePage.title')} />
+      <BigLogo src={bannerSrc} alt={t('homePage.title')} />
       <StackList>
         <img src='https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black' />
         <img src='https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white' />
