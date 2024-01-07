@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const BigLogo = styled.img`
   width: 50%;
-  padding-bottom: var(--spacing-m);
+  padding-bottom: var(--spacing-xl);
 `;
 
 const StackList = styled.div`
