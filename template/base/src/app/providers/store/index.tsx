@@ -1,9 +1,9 @@
 import { RecoilRoot } from 'recoil';
 
-type RecoilProviderProps = {
+type Props = {
   children: React.ReactNode;
 };
 
-const StoreProvider = ({ children }: RecoilProviderProps) => <RecoilRoot>{children}</RecoilRoot>;
+const StoreProvider = ({ children }: Props) => <RecoilRoot>{children}</RecoilRoot>;
 
 export { StoreProvider };
