@@ -1,0 +1,16 @@
+{
+  "name": "create-victus-app",
+  "version": "0.0.1",
+  "description": "CLI for creating web apps with VictusCode stack",
+  "main": "index.js",
+  "bin": "./index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "victus",
+    "boilerplate"
+  ],
+  "author": "https://github.com/BlueRexPY",
+  "license": "MIT"
+}
