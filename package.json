@@ -1,17 +1,17 @@
 {
   "name": "victus-app",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A CLI for creating web apps with the VictusCode stack",
   "main": "index.js",
   "bin": {
-    "victus-app": "./dist/index.js"
+    "victus-app": "./src/index.js"
   },
   "repository": "https://github.com/VictusCode/CreateVictusApp",
   "homepage": "https://github.com/VictusCode/CreateVictusApp#readme",
   "scripts": {
-    "link": "npm --global unlink victus-app && chmod +x ./dist/index.js && npm --global link",
+    "link": "npm unlink victus-app && cd ./dist && chmod +x ./ && npm link",
     "clean": "rm -rf ./dist",
-    "build": "clean && tsc",
+    "build": "npm run clean && tsc",
     "dev": "tsc -w",
     "test": "jest",
     "format": "prettier --write .",
@@ -26,17 +26,21 @@
   "author": "https://github.com/BlueRexPY",
   "license": "MIT",
   "dependencies": {
+    "chalk": "4.1.2",
     "commander": "^11.1.0",
+    "enquirer": "^2.4.1",
     "figlet": "^1.7.0",
     "husky": "^9.0.6",
     "install": "^0.13.0",
     "lint-staged": "^15.2.0",
-    "npm": "^10.4.0"
+    "npm": "^10.4.0",
+    "temp": "^0.9.4"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/figlet": "^1.5.8",
     "@types/node": "^20.11.5",
+    "@types/temp": "^0.9.4",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
     "esbuild": "0.19.12",

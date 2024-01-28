@@ -1,0 +1,1 @@
+export { configureProjectPrompt } from './prompt';

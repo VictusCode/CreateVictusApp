@@ -3,7 +3,7 @@
     "_version": "20.1.0",
     "compileOnSave": true,
     "include": [
-        "src/**/*",
+        "./src/**/*",
     ],
     "exclude": [
         "node_modules",
@@ -13,39 +13,43 @@
     ],
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
-        "baseUrl": "./src",
+        // "baseUrl": "./src",
         "declaration": true,
         "emitDecoratorMetadata": true,
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
         "incremental": true,
-        "module": "Node16",
-        "moduleResolution": "node16",
+        "moduleResolution": "node",
         "noFallthroughCasesInSwitch": false,
         "noImplicitAny": false,
         "noUncheckedIndexedAccess": true,
         "outDir": "./dist",
         "removeComments": true,
+        "resolveJsonModule": true,
+        "module": "CommonJS",
         "skipLibCheck": true,
         "sourceMap": true,
         "strict": true,
         "strictBindCallApply": false,
         "strictNullChecks": true,
         "target": "es2022",
-        "paths": {
-            "@core/*": [
-                "./core/*"
-            ],
-            "@ui/*": [
-                "./ui/*"
-            ],
-        },
+        "lib": [
+            "es6",
+            "es2015"
+        ],
+        // "paths": {
+        //     "@core/*": [
+        //         "src/core/*"
+        //     ],
+        //     "@ui/*": [
+        //         "src/ui/*"
+        //     ],
+        // },
         "typeRoots": [
             "./node_modules/@types"
         ],
         "types": [
-            "jest",
             "node"
         ],
     },

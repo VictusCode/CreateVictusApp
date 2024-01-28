@@ -23,7 +23,7 @@
 pnpm i
 ```
 
-## Usage
+## Development Server
 
 ```bash
 pnpm dev

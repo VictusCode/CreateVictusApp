@@ -1,0 +1,1 @@
+export { printError } from './error';
