@@ -18,4 +18,4 @@ i18n
     debug: IS_DEV,
   }));
 
-export default i18n;
+export { i18n };
