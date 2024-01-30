@@ -1,7 +1,9 @@
 import { createDir } from './createDir';
+import { downloadFromURL } from './downloadFromURL';
 
 const createApp = async (dir: string, url: string) => {
-  createDir(dir);
+  await createDir(dir);
+  downloadFromURL(url, dir);
 };
 
 export { createApp };

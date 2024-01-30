@@ -1,7 +1,8 @@
-import { existsSync, mkdirSync } from 'fs';
+import { existsSync } from 'fs';
+import { mkdirSync } from 'temp';
 import { printError } from '../ui/shared';
 
-const createDir = (dir: string) => {
+const createDir = async (dir: string) => {
   if (existsSync(dir)) return printError('directory exists, please choose another name');
 
   mkdirSync(dir);

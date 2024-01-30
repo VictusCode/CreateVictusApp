@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync } from 'fs';
+import { existsSync } from 'fs';
 import { printError } from '../ui/shared';
 
 const validDir = (dir: string) => {
