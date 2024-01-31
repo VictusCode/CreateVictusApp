@@ -1,5 +1,5 @@
-const errorColor = '\x1b[31m';
+import ora from 'ora';
 
-const printError = (error: string) => console.error(errorColor, error);
+const printError = (error: string) => ora().fail(`${error} \n `);
 
 export { printError };

@@ -1,7 +1,7 @@
 import { prompt } from 'enquirer';
+import { ProjectConfig, ProjectConfigs, ProjectConfigTypeEnum } from '../../../shared';
 import { printError } from '../../shared';
-import { ProjectConfig, ProjectConfigs, reactConfigs } from '../configs';
-import { ProjectConfigTypeEnum } from '../configs/type';
+import { reactConfigs } from '../configs';
 import { ProjectTypeEnum } from '../type';
 
 const configureProjectPrompt = async (projectType: ProjectTypeEnum): Promise<ProjectConfig | null> => {
@@ -16,7 +16,7 @@ const configureProjectPrompt = async (projectType: ProjectTypeEnum): Promise<Pro
   const response = (await prompt({
     type: 'select',
     name: 'projectConfig',
-    message: 'Choose a project template',
+    message: 'Choose a project config',
     choices: Object.values(configs).map(({ type: name, title: message, description: hint }) => ({
       type: 'select',
       name,

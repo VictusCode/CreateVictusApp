@@ -34,7 +34,7 @@ const app = async () => {
 
   if (!projectConfig) return;
 
-  createApp(projectDir, projectConfig.url);
+  createApp(projectDir, projectConfig);
 };
 
 export { app };

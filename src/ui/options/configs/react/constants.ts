@@ -1,4 +1,4 @@
-import { ProjectConfigs, ProjectConfigTypeEnum } from '../type';
+import { ProjectConfigs, ProjectConfigTypeEnum } from '../../../../shared';
 
 const reactConfigs: ProjectConfigs = {
   [ProjectConfigTypeEnum.basic]: {
@@ -6,7 +6,7 @@ const reactConfigs: ProjectConfigs = {
     description:
       'Classic VictusCode React app: TypeScript, Vite, Vitest, React Query, React Router, Recoil, Styled Components, I18next and more.',
     type: ProjectConfigTypeEnum.basic,
-    url: 'https://github.com/VictusCode/CreateVictusApp/tree/main/templates/react/base',
+    path: ['react', 'base'],
   },
   // add custom configurator
 };

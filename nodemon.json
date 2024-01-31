@@ -1,0 +1,13 @@
+{
+    "verbose": true,
+    "ignore": [
+        "templates/**"
+    ],
+    "watch": [
+        "src",
+        "tsconfig.json",
+        "package.json"
+    ],
+    "exec": "npm run build && npm run link && chmod +x /home/admin/.nvm/versions/node/v21.5.0/bin/victus-app",
+    "ext": "ts js json"
+}
