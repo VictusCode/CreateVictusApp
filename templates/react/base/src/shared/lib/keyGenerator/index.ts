@@ -24,4 +24,4 @@ const getUniqueKey = (prefix: string = '', length: number = 8): string => {
   return key + (counter++).toString(36);
 };
 
-export default getUniqueKey;
+export { getUniqueKey };
