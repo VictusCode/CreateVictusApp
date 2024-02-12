@@ -15,7 +15,8 @@
     "dev": "nodemon --config nodemon.json",
     "test": "jest",
     "format": "prettier --write .",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "release": "npm publish"
   },
   "keywords": [
     "victus",
