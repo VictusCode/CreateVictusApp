@@ -1,15 +1,11 @@
 import chalk from 'chalk';
 import { Command } from 'commander';
-import path from 'path';
-import { cleanupSync, track } from 'temp';
 import packageJSON from '../../package.json';
 import { createApp, validDir } from '../core';
 import { configureProjectPrompt, promptProjectType } from './options';
 import { welcomeStage } from './welcome';
 
 const program = new Command();
-
-track();
 
 const app = async () => {
   welcomeStage();

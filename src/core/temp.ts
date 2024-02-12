@@ -1,18 +1,37 @@
+import { existsSync, mkdirSync, mkdtempSync, rmSync } from 'fs';
 import ora from 'ora';
-import tmp from 'tmp';
+import { tmpdir } from 'os';
+import { join } from 'path';
+import packageJSON from '../../package.json';
 
-const createTempDir = async (dir: string): Promise<tmp.DirResult> => {
-  const spinner = ora(`Preparing the environment \n`).start();
+const createTempEnv = async () => {
+  const spinner = ora('Preparing the temp environment').start();
 
-  const tempDir = tmp.dirSync({ dir, prefix: '.' });
+  const tempDir = mkdtempSync(join(tmpdir(), packageJSON.name));
 
-  spinner.succeed(`Successfully prepared the temp environment \n`);
+  const tempFile = join(tempDir, 'source.tar.gz');
 
-  return tempDir;
+  const tempAppDir = join(tempDir, 'app');
+  mkdirSync(tempAppDir);
+
+  spinner.succeed('Successfully prepared the temp environment');
+
+  return {
+    tempAppDir,
+    tempDir,
+    tempFile,
+  };
 };
 
-const clearTempDir = async () => {
-  tmp.setGracefulCleanup();
+const cleanTempEnv = (tempDir: string) => {
+  const spinner = ora('Cleaning up temp environment (づ ᴗ _ᴗ)づ  ๋࣭ ⭑🗑๋࣭ ⭑').start();
+  try {
+    if (existsSync(tempDir)) rmSync(tempDir, { recursive: true });
+
+    spinner.succeed('successfully cleared temp environment');
+  } catch (error) {
+    spinner.fail('Failed to clear temp environment (╥﹏╥)');
+  }
 };
 
-export { createTempDir, clearTempDir };
+export { createTempEnv, cleanTempEnv };

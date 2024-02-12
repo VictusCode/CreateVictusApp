@@ -1,62 +1,45 @@
 import axios from 'axios';
 import { createWriteStream } from 'fs';
-import got from 'got';
 import ora from 'ora';
-import { tmpdir } from 'os';
 import { join } from 'path';
-import { Stream } from 'stream';
 import tar from 'tar';
-import tmp from 'tmp';
-import { promisify } from 'util';
-import { ProjectConfig } from '../shared';
 import { gitTarUrl } from './config';
-import { clearTempDir } from './temp';
 
 type Props = {
-  config: ProjectConfig;
-  temp: tmp.DirResult;
+  tempFile: string;
+  tempDir: string;
 };
 
-const cloneFromRemoteRepositoryToTemp = async ({ temp }: Props) => {
-  const spinner = ora(`Cloning remote repo (づ ᴗ _ᴗ)づ ✩₊˚.⋆☾⋆⁺ \n`).start();
+const cloneFromRemoteRepositoryToTemp = async ({ tempFile, tempDir }: Props) => {
+  const spinner = ora('Cloning remote repo (づ ᴗ _ᴗ)づ ✩₊˚.⋆☾⋆⁺').start();
 
   try {
-    const tempFilePath = join(tmpdir(), 'template.tar.gz');
-
-    const response = await axios({
-      method: 'get',
-      url: gitTarUrl,
-      responseType: 'stream',
-    });
-
-    const writer = createWriteStream(tempFilePath);
-
+    const response = await axios.get(gitTarUrl, { responseType: 'stream' });
+    const writer = createWriteStream(tempFile);
     response.data.pipe(writer);
 
-    await new Promise<void>((resolve, reject) => {
+    await new Promise((resolve, reject) => {
       writer.on('finish', resolve);
       writer.on('error', reject);
     });
 
     await tar.extract({
-      file: tempFilePath,
-      cwd: process.cwd(),
-      strip: 4,
-      filter: (path) => path.startsWith('CreateVictusApp-main/templates/react/base'),
+      file: tempFile,
+      cwd: tempDir,
+      strip: 0,
+      filter: (path) => path.startsWith('CreateVictusApp-main/templates'),
     });
 
-    require('fs').unlinkSync(tempFilePath);
+    const templatesDir = join(tempDir, 'CreateVictusApp-main', 'templates');
 
-    console.log('Template extracted successfully.');
+    spinner.succeed('Successfully cloned repo');
+
+    return templatesDir;
   } catch (error) {
-    spinner.fail(`Failed to clone repo (╥﹏╥) \n `);
-    clearTempDir();
+    spinner.fail('Failed to clone repo (╥﹏╥)');
+
     return null;
   }
-
-  spinner.succeed(`Successfully cloned repo\n`);
-
-  return temp;
 };
 
 export { cloneFromRemoteRepositoryToTemp };

@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync } from 'fs';
+import { copyFileSync, existsSync, lstatSync, mkdirSync, readdirSync, rmSync } from 'fs';
 import { join } from 'path';
 import { printError } from '../ui/shared';
 
@@ -40,4 +40,23 @@ const syncTempDirToProjectDir = (tempDir: string, projectDir: string) => {
   }
 };
 
-export { createDir, clearDir, syncTempDirToProjectDir };
+const copyDirRecursiveSync = (source: string, target: string) => {
+  if (!existsSync(target)) {
+    mkdirSync(target);
+  }
+
+  if (lstatSync(source).isDirectory()) {
+    const files = readdirSync(source);
+    files.forEach((file) => {
+      const currentSource = join(source, file);
+      const currentTarget = join(target, file);
+      if (lstatSync(currentSource).isDirectory()) {
+        copyDirRecursiveSync(currentSource, currentTarget);
+      } else {
+        copyFileSync(currentSource, currentTarget);
+      }
+    });
+  }
+};
+
+export { createDir, clearDir, syncTempDirToProjectDir, copyDirRecursiveSync };

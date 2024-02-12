@@ -1,6 +1,6 @@
 enum ProjectTypeEnum {
   'react' = 'react',
-} // todo add nest, solid, next
+} // todo add nest, solid, next, remix
 
 type ProjectTypeConfig = {
   title: string;
