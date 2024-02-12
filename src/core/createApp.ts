@@ -1,17 +1,22 @@
 import { ProjectConfig } from '../shared';
-import { cloneFromRemoteRepository } from './git';
+import { syncTempDirToProjectDir } from './dir';
+import { cloneFromRemoteRepositoryToTemp } from './git';
 import { createTempDir } from './temp';
 
 const createApp = async (dir: string, config: ProjectConfig) => {
-  const temp = await createTempDir(dir);
-  if (!temp) return;
+  const { name: temp } = await createTempDir(dir);
 
-  const clonedRepo = await cloneFromRemoteRepository({
+  // based project
+  const clonedRepo = await cloneFromRemoteRepositoryToTemp({
     config,
     temp,
   });
 
   if (!clonedRepo) return;
+
+  // todo: installation of additional packages
+
+  syncTempDirToProjectDir(temp, dir);
 };
 
 export { createApp };

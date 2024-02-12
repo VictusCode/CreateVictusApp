@@ -1,33 +1,18 @@
-import { existsSync } from 'fs';
 import ora from 'ora';
-import { join } from 'path';
-import { cleanupSync, mkdirSync } from 'temp';
-import packageJSON from '../../package.json';
-import { printError } from '../ui/shared';
+import tmp from 'tmp';
 
-const createTempDir = async (dir: string) => {
-  if (existsSync(dir)) {
-    printError('directory exists, please choose another name');
-    return;
-  }
-
+const createTempDir = async (dir: string): Promise<tmp.DirResult> => {
   const spinner = ora(`Preparing the environment \n`).start();
-  mkdirSync(dir);
 
-  const tempDir = mkdirSync({
-    dir,
-    prefix: '.',
-  });
+  const tempDir = tmp.dirSync({ dir, prefix: '.' });
 
-  const file = join(tempDir, `${packageJSON.name}-${Date.now()}`);
+  spinner.succeed(`Successfully prepared the temp environment \n`);
 
-  spinner.succeed(`Successfully prepared the environment \n`);
-
-  return { dir: tempDir, file };
+  return tempDir;
 };
 
 const clearTempDir = async () => {
-  cleanupSync();
+  tmp.setGracefulCleanup();
 };
 
 export { createTempDir, clearTempDir };

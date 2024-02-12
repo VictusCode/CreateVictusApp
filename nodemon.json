@@ -8,6 +8,6 @@
         "tsconfig.json",
         "package.json"
     ],
-    "exec": "npm run build && npm run link && chmod +x /home/admin/.nvm/versions/node/v21.5.0/bin/victus-app",
+    "exec": "npm run build && chmod +x ./dist/src/index.js",
     "ext": "ts js json"
 }
