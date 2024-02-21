@@ -1,5 +1,5 @@
 enum ProjectConfigTypeEnum {
-  'basic' = 'basic',
+  'standard' = 'standard',
 }
 
 type ProjectConfigPathType = string[];

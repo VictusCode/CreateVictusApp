@@ -1,14 +1,14 @@
 import { ProjectConfigs, ProjectConfigTypeEnum } from '../../../../shared';
 
 const reactConfigs: ProjectConfigs = {
-  [ProjectConfigTypeEnum.basic]: {
-    title: 'Basic',
+  [ProjectConfigTypeEnum.standard]: {
+    title: 'Standard',
     description:
-      'Classic VictusCode React app: TypeScript, Vite, Vitest, React Query, React Router, Recoil, Styled Components, I18next and more.',
-    type: ProjectConfigTypeEnum.basic,
-    path: ['react', 'base'],
+      'Standard VictusCode React app: TypeScript, Vite, Vitest, React Query, React Router, Recoil, Styled Components, I18next and more.',
+    type: ProjectConfigTypeEnum.standard,
+    path: ['react', 'standard'],
   },
-  // add custom configurator
+  // add more configs here
 };
 
 export { reactConfigs };

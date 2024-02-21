@@ -51,8 +51,9 @@
     "esbuild": "0.19.12",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^3.0.3",
-    "prettier": "2.8.3",
+    "prettier": "^2.8.0",
     "typescript": "^5.3.3"
   },
   "husky": {
