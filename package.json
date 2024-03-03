@@ -1,6 +1,6 @@
 {
   "name": "victus-app",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A CLI for creating web apps with the VictusCode stack",
   "main": "index.js",
   "bin": {
