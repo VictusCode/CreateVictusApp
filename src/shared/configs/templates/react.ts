@@ -1,4 +1,4 @@
-import { ProjectConfigs, ProjectConfigTypeEnum } from '../../../../shared';
+import { ProjectConfigs, ProjectConfigTypeEnum } from '../types/projectConfig';
 
 const reactConfigs: ProjectConfigs = {
   [ProjectConfigTypeEnum.standard]: {

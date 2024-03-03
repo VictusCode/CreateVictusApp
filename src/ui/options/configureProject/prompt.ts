@@ -1,7 +1,7 @@
+import { reactConfigs } from '@shared/configs';
 import { prompt } from 'enquirer';
 import { ProjectConfig, ProjectConfigs, ProjectConfigTypeEnum } from '../../../shared';
 import { printError } from '../../shared';
-import { reactConfigs } from '../configs';
 import { ProjectTypeEnum } from '../type';
 
 const configureProjectPrompt = async (projectType: ProjectTypeEnum): Promise<ProjectConfig | null> => {

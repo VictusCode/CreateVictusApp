@@ -2,7 +2,7 @@
   "homePage": {
     "title": "Create Victus App"
   },
-  "loadingPage": {
-    "title": "Завантаження..."
+  "notFoundPage": {
+    "title": "Сторінку не знайдено"
   }
 }

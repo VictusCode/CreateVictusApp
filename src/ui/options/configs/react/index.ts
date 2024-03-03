@@ -1,1 +1,0 @@
-export { reactConfigs } from './constants';
