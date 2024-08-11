@@ -1,53 +1,32 @@
-import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
-import react from '@vitejs/plugin-react';
-import { defineConfig, loadEnv } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import { resolvePath } from './helpers';
-
-const PORT = Number(process.env.PORT) || 3000;
+import dotenv from 'dotenv';
+import { defineConfig } from 'vite';
+import { plugins } from '../plugins';
+import { resolvePath } from '../shared/helpers';
+import { baseBuildConfig as build } from './base';
+import { devBuildConfig } from './dev';
+import { prodBuildConfig } from './prod';
 
 export default defineConfig(({ mode }) => {
-  const isDev = mode === 'development';
+  if (mode !== 'local') dotenv.config({ path: '.env' });
 
-  const buildOptions = {
-    outDir: 'dist',
-    assetsDir: 'assets',
-  };
+  const IS_DEV = mode === 'develop' || mode === 'local';
+  const port = Number(process.env.PORT) || 3030;
 
-  if (!isDev) {
-    process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
-
-    Object.assign(buildOptions, {
-      sourcemap: false,
-      manifest: true,
-    });
-  }
-
-  if (isDev) {
-    Object.assign(buildOptions, {
-      sourcemap: true,
-    });
-  }
+  Object.assign(build, IS_DEV ? devBuildConfig : prodBuildConfig);
 
   return {
-    plugins: [tsconfigPaths(), react(), TanStackRouterVite()],
+    plugins,
     base: '/',
-    publicDir: './public',
-    build: buildOptions,
+    publicDir: resolvePath('public'),
+    build,
     preview: {
-      port: PORT,
+      port,
+    },
+    server: {
+      port,
     },
     define: {
-      IS_DEV: isDev,
-    },
-    resolve: {
-      alias: {
-        '@app': resolvePath('app'),
-        '@modules': resolvePath('modules'),
-        '@pages': resolvePath('pages'),
-        '@shared': resolvePath('shared'),
-        '@ui': resolvePath('ui'),
-      },
+      IS_DEV,
     },
   };
 });
