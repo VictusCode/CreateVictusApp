@@ -1,3 +1,3 @@
 ```
-npx victus-app
+npx victus-app app_name
 ```

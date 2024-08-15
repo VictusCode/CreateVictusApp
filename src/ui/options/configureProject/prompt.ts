@@ -10,10 +10,13 @@ const configureProjectPrompt = async (projectType: ProjectTypeEnum): Promise<Pro
 
   if (!configs) {
     printError('project type not found');
+
     return null;
   }
 
-  const response = (await prompt({
+  const response: {
+    projectConfig: keyof ProjectConfigTypeEnum;
+  } = await prompt({
     type: 'select',
     name: 'projectConfig',
     message: 'Choose a project config',
@@ -23,9 +26,7 @@ const configureProjectPrompt = async (projectType: ProjectTypeEnum): Promise<Pro
       message,
       hint,
     })),
-  })) as {
-    projectConfig: keyof ProjectConfigTypeEnum;
-  };
+  });
 
   return configs[ProjectConfigTypeEnum[response.projectConfig]];
 };

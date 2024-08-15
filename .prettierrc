@@ -9,13 +9,21 @@
   "bracketSpacing": true,
   "bracketSameLine": true,
   "endOfLine": "lf",
-  "importOrder": ["^@", "<THIRD_PARTY_MODULES>", "^[./|~/]"],
+  "importOrder": [
+    "^@",
+    "<THIRD_PARTY_MODULES>",
+    "^[./|~/]"
+  ],
   "importOrderBuiltinModulesToTop": true,
   "importOrderCaseInsensitive": true,
-  "importOrderParserPlugins": ["typescript"],
+  "importOrderParserPlugins": [
+    "typescript"
+  ],
   "importOrderMergeDuplicateImports": true,
   "importOrderCombineTypeAndValueImports": true,
   "importOrderSeparation": false,
   "importOrderSortSpecifiers": true,
-  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports"
+  ]
 }

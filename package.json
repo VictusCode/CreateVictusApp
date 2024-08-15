@@ -1,6 +1,6 @@
 {
   "name": "victus-app",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A CLI for creating web apps with the VictusCode stack",
   "main": "index.js",
   "bin": {
@@ -9,6 +9,7 @@
   "repository": "https://github.com/VictusCode/CreateVictusApp",
   "homepage": "https://github.com/VictusCode/CreateVictusApp#readme",
   "scripts": {
+    "prepare": "npx ts-patch install -s",
     "link": "npm unlink victus-app && cd ./dist && npm link",
     "clean": "rm -rf ./dist",
     "build": "npm run clean && tsc",
@@ -54,7 +55,10 @@
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^3.0.3",
     "prettier": "^2.8.0",
-    "typescript": "^5.3.3"
+    "ts-patch": "^3.2.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.3.3",
+    "typescript-transform-paths": "^3.4.10"
   },
   "husky": {
     "hooks": {
