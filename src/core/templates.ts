@@ -1,4 +1,4 @@
-import { ProjectConfig } from '@shared/configs';
+import { ProjectConfigType } from '@app/configs';
 import ora from 'ora';
 import { join } from 'path';
 import { copyDirRecursiveSync } from './dir';
@@ -6,7 +6,7 @@ import { copyDirRecursiveSync } from './dir';
 type Props = {
   tempAppDir: string;
   templatesDir: string;
-  config: ProjectConfig;
+  config: ProjectConfigType;
 };
 
 const setupBaseTemplate = ({ tempAppDir, templatesDir, config }: Props) => {
@@ -17,7 +17,7 @@ const setupBaseTemplate = ({ tempAppDir, templatesDir, config }: Props) => {
 
     copyDirRecursiveSync(baseTemplatePath, tempAppDir);
 
-    spinner.succeed('Base template successfully copied');
+    spinner.succeed('Template successfully copied');
   } catch (error) {
     spinner.fail('Failed to copy base template (╥﹏╥)');
   }

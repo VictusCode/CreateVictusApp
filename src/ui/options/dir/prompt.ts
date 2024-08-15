@@ -1,14 +1,16 @@
 import { prompt } from 'enquirer';
 
+type ResponseType = {
+  projectType: string;
+};
+
 const promptProjectDir = async (): Promise<string> => {
-  const response = (await prompt({
+  const response: ResponseType = await prompt({
     name: 'projectDir',
     type: 'input',
     message: 'What is the name of your project?',
     initial: 'VictusCodeApp',
-  })) as {
-    projectType: string;
-  };
+  });
 
   return response.projectType;
 };

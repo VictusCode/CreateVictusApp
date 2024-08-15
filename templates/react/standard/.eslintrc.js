@@ -29,7 +29,40 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'no-param-reassign': 'off',
     'no-unused-variable': 'error',
+    'no-unused-vars': 'error',
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'typeLike',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^(T|P|Props|[A-Z][a-zA-Z0-9]*(Props|Type))$',
+          match: true,
+        },
+      },
+      {
+        selector: 'enum',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^[A-Z][a-zA-Z0-9]*Enum$',
+          match: true,
+        },
+      },
+      {
+        selector: 'enumMember',
+        format: ['camelCase'],
+      },
+    ],
   },
+  overrides: [
+    {
+      files: ['/generated//*.ts', '/generated//*.tsx', 'routeTree.gen.ts'],
+      rules: {
+        '@typescript-eslint/naming-convention': ['off'],
+      },
+    },
+  ],
+
   settings: {
     react: {
       version: 'detect',
@@ -40,11 +73,4 @@ module.exports = {
     vi: true,
     vitest: true,
   },
-  overrides: [
-    {
-      rules: {
-        'i18next/no-literal-string': 'off',
-      },
-    },
-  ],
 };

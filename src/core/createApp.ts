@@ -1,10 +1,10 @@
-import { ProjectConfig } from '../shared';
+import { ProjectConfigType } from '@app/configs';
+import { cloneFromRemoteRepositoryToTemp } from './cloneRepository';
 import { syncTempDirToProjectDir } from './dir';
-import { cloneFromRemoteRepositoryToTemp } from './git';
 import { cleanTempEnv, createTempEnv } from './temp';
 import { setupBaseTemplate } from './templates';
 
-const createApp = async (dir: string, config: ProjectConfig) => {
+const createApp = async (dir: string, config: ProjectConfigType) => {
   const { tempDir, tempFile, tempAppDir } = await createTempEnv();
 
   const templatesDir = await cloneFromRemoteRepositoryToTemp({ tempDir, tempFile });
@@ -17,7 +17,7 @@ const createApp = async (dir: string, config: ProjectConfig) => {
     config,
   });
 
-  // todo: installation of additional packages
+  // TODO: installation of additional packages
 
   syncTempDirToProjectDir(tempAppDir, dir);
   cleanTempEnv(tempDir);

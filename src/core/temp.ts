@@ -25,6 +25,7 @@ const createTempEnv = async () => {
 
 const cleanTempEnv = (tempDir: string) => {
   const spinner = ora('Cleaning up temp environment (づ ᴗ _ᴗ)づ  ๋࣭ ⭑🗑๋࣭ ⭑').start();
+
   try {
     if (existsSync(tempDir)) rmSync(tempDir, { recursive: true });
 

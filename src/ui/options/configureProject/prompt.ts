@@ -1,25 +1,27 @@
-import { reactConfigs } from '@shared/configs';
+import { ProjectConfigsType, ProjectConfigType, ProjectConfigTypeEnum, templateConfigs } from '@app/configs';
+import { ReactProjectConfigTypeEnum } from '@app/configs/templates/enums/reactProject';
 import { prompt } from 'enquirer';
-import { ProjectConfig, ProjectConfigs, ProjectConfigTypeEnum } from '../../../shared';
-import { printError } from '../../shared';
-import { ProjectTypeEnum } from '../type';
+import { printError } from '../../print';
 
-const configureProjectPrompt = async (projectType: ProjectTypeEnum): Promise<ProjectConfig | null> => {
-  let configs: ProjectConfigs | null = null;
-  if (projectType === ProjectTypeEnum.react) configs = reactConfigs;
+type ResponseType = {
+  projectConfig: ReactProjectConfigTypeEnum;
+};
+
+const configureProjectPrompt = async (
+  projectType: ProjectConfigTypeEnum,
+): Promise<ProjectConfigType | null> => {
+  const configs: ProjectConfigsType = templateConfigs[projectType];
 
   if (!configs) {
-    printError('project type not found');
+    printError(`Project type "${projectType}" not found`);
 
     return null;
   }
 
-  const response: {
-    projectConfig: keyof ProjectConfigTypeEnum;
-  } = await prompt({
+  const response: ResponseType = await prompt({
     type: 'select',
     name: 'projectConfig',
-    message: 'Choose a project config',
+    message: 'Choose a project configuration',
     choices: Object.values(configs).map(({ type: name, title: message, description: hint }) => ({
       type: 'select',
       name,
@@ -28,7 +30,7 @@ const configureProjectPrompt = async (projectType: ProjectTypeEnum): Promise<Pro
     })),
   });
 
-  return configs[ProjectConfigTypeEnum[response.projectConfig]];
+  return configs[response.projectConfig];
 };
 
 export { configureProjectPrompt };

@@ -11,6 +11,9 @@ dependencies:
   chalk:
     specifier: 4.1.2
     version: 4.1.2
+  colorette:
+    specifier: ^2.0.20
+    version: 2.0.20
   commander:
     specifier: ^11.1.0
     version: 11.1.0
@@ -29,6 +32,9 @@ dependencies:
   install:
     specifier: ^0.13.0
     version: 0.13.0
+  kleur:
+    specifier: ^4.1.5
+    version: 4.1.5
   lint-staged:
     specifier: ^15.2.0
     version: 15.2.0
@@ -1678,6 +1684,11 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /kleur@4.1.5:
+    resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
+    engines: {node: '>=6'}
+    dev: false
 
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}

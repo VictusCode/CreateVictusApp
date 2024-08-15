@@ -1,9 +1,9 @@
+import { repositoryConfig } from '@app/configs';
 import axios from 'axios';
 import { createWriteStream } from 'fs';
 import ora from 'ora';
 import { join } from 'path';
 import tar from 'tar';
-import { gitTarUrl } from './config';
 
 type Props = {
   tempFile: string;
@@ -14,7 +14,7 @@ const cloneFromRemoteRepositoryToTemp = async ({ tempFile, tempDir }: Props) => 
   const spinner = ora('Cloning remote repo (づ ᴗ _ᴗ)づ ✩₊˚.⋆☾⋆⁺').start();
 
   try {
-    const response = await axios.get(gitTarUrl, { responseType: 'stream' });
+    const response = await axios.get(repositoryConfig.tarURL, { responseType: 'stream' });
     const writer = createWriteStream(tempFile);
     response.data.pipe(writer);
 

@@ -2,35 +2,37 @@ import chalk from 'chalk';
 import { Command } from 'commander';
 import packageJSON from '../../package.json';
 import { createApp, validDir } from '../core';
-import { configureProjectPrompt, promptProjectType } from './options';
-import { welcomeStage } from './welcome';
+import { printIntro } from './intro';
+import { configureProjectPrompt } from './options';
+import { promptProjectType } from './options/type';
+import { printOutro } from './outro';
 
 const program = new Command();
 
 const app = async () => {
-  welcomeStage();
+  printIntro();
 
   program
     .name(packageJSON.name)
     .version(packageJSON.version)
     .description('A CLI for creating web apps with the VictusCode stack')
-    .argument('<directory>', 'The name of the directory to create')
+    .option('<directory>', 'The name of the directory to create', packageJSON.name)
     .usage(`${chalk.green('<directory>')} [options]`)
     .parse(process.argv);
 
-  const userProjectDir = program.args[0]?.trim().replace(/\s/g, '-').toLowerCase();
-
-  const projectDir = userProjectDir || packageJSON.name;
+  const projectDir = program.args[0]?.trim().replace(/\s/g, '-').toLowerCase() ?? packageJSON.name;
 
   if (!validDir(projectDir)) return;
 
-  const { type: projectType } = await promptProjectType();
+  const { type: projectType } = await promptProjectType(); // ? "react" for example
 
-  const projectConfig = await configureProjectPrompt(projectType);
+  const projectConfig = await configureProjectPrompt(projectType); // ? "standard" for example
 
   if (!projectConfig) return;
 
-  createApp(projectDir, projectConfig);
+  await createApp(projectDir, projectConfig);
+
+  printOutro(projectConfig.successMessageFactory(projectDir));
 };
 
 export { app };

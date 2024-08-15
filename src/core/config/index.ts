@@ -1,1 +1,0 @@
-export { gitTarUrl } from './git';
