@@ -4,16 +4,16 @@ import { ReactProjectConfigTypeEnum } from './enums/reactProject';
 import { ProjectConfigsType, PromptProjectConfigsItemType } from './types/project';
 
 const reactProjectConfigs: ProjectConfigsType = Object.freeze({
-  [ReactProjectConfigTypeEnum.standard]: {
-    title: 'Standard',
+  [ReactProjectConfigTypeEnum.spa]: {
+    title: 'SPA',
     description:
-      'Standard VictusCode React app: TypeScript, Vite, Vitest, React Query, React Router, Recoil, Styled Components, I18next and more',
-    type: ReactProjectConfigTypeEnum.standard,
+      'TypeScript, Vite, Vitest, TanStack Query, TanStack Router, Jotai, Styled Components, I18next and more',
+    type: ReactProjectConfigTypeEnum.spa,
     successMessageFactory: (projectPath: string) =>
       `Run ${italic(
         blue(`cd ${projectPath} && npm install && npm run dev`),
       )} to start the development server`,
-    path: ['react', 'standard'],
+    path: ['react', 'spa'],
   },
   // ? add more configs here
 });

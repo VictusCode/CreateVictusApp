@@ -9,8 +9,12 @@ type Props = {
   config: ProjectConfigType;
 };
 
-const setupBaseTemplate = ({ tempAppDir, templatesDir, config }: Props) => {
-  const spinner = ora('Copying the base template (づ ᴗ _ᴗ)づ  ✩₊˚🛠✩').start();
+type ReturnType = {
+  isError: boolean;
+};
+
+const setupTemplate = ({ tempAppDir, templatesDir, config }: Props): ReturnType => {
+  const spinner = ora('Copying the template (づ ᴗ _ᴗ)づ  ✩₊˚🛠✩').start();
 
   try {
     const baseTemplatePath = join(templatesDir, ...config.path);
@@ -19,8 +23,11 @@ const setupBaseTemplate = ({ tempAppDir, templatesDir, config }: Props) => {
 
     spinner.succeed('Template successfully copied');
   } catch (error) {
-    spinner.fail('Failed to copy base template (╥﹏╥)');
+    spinner.fail('Failed to copy template (╥﹏╥)');
+    return { isError: true };
   }
+
+  return { isError: false };
 };
 
-export { setupBaseTemplate };
+export { setupTemplate };

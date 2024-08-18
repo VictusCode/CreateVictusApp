@@ -56,13 +56,13 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['/generated//*.ts', '/generated//*.tsx', 'routeTree.gen.ts'],
+      files: ['./generated/*.ts', './generated/*.tsx', 'routeTree.gen.ts'],
       rules: {
         '@typescript-eslint/naming-convention': ['off'],
       },
     },
   ],
-
+  ignorePatterns: ['../**/*', 'node_modules/', 'dist/', 'build/', 'public/'],
   settings: {
     react: {
       version: 'detect',

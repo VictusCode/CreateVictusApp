@@ -30,7 +30,9 @@ const app = async () => {
 
   if (!projectConfig) return;
 
-  await createApp(projectDir, projectConfig);
+  const { isError } = await createApp(projectDir, projectConfig);
+
+  if (isError) return;
 
   printOutro(projectConfig.successMessageFactory(projectDir));
 };

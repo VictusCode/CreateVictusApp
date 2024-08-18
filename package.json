@@ -1,6 +1,6 @@
 {
   "name": "victus-app",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "A CLI for creating web apps with the VictusCode stack",
   "main": "index.js",
   "bin": {
@@ -48,8 +48,8 @@
     "@types/node": "^20.11.5",
     "@types/ora": "^3.2.0",
     "@types/tar": "^6.1.11",
-    "@typescript-eslint/eslint-plugin": "^6.19.0",
-    "@typescript-eslint/parser": "^6.19.0",
+    "@typescript-eslint/eslint-plugin": "6.18.1",
+    "@typescript-eslint/parser": "6.18.1",
     "esbuild": "0.19.12",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^8.3.0",

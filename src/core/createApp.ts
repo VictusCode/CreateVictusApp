@@ -2,25 +2,38 @@ import { ProjectConfigType } from '@app/configs';
 import { cloneFromRemoteRepositoryToTemp } from './cloneRepository';
 import { syncTempDirToProjectDir } from './dir';
 import { cleanTempEnv, createTempEnv } from './temp';
-import { setupBaseTemplate } from './templates';
+import { setupTemplate } from './templates';
 
-const createApp = async (dir: string, config: ProjectConfigType) => {
+type ReturnType = {
+  isError: boolean;
+};
+
+const createApp = async (dir: string, config: ProjectConfigType): Promise<ReturnType> => {
   const { tempDir, tempFile, tempAppDir } = await createTempEnv();
 
   const templatesDir = await cloneFromRemoteRepositoryToTemp({ tempDir, tempFile });
 
-  if (!templatesDir) return;
+  if (!templatesDir)
+    return {
+      isError: true,
+    };
 
-  setupBaseTemplate({
+  const { isError } = setupTemplate({
     templatesDir,
     tempAppDir,
     config,
   });
 
-  // TODO: installation of additional packages
+  if (isError)
+    return {
+      isError: true,
+    };
 
   syncTempDirToProjectDir(tempAppDir, dir);
+
   cleanTempEnv(tempDir);
+
+  return { isError: false };
 };
 
 export { createApp };

@@ -1,5 +1,5 @@
 enum ReactProjectConfigTypeEnum {
-  'standard' = 'standard',
+  'spa' = 'spa',
 }
 
 export { ReactProjectConfigTypeEnum };

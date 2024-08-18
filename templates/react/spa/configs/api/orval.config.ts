@@ -2,15 +2,15 @@ import { resolvePath } from '../shared/helpers';
 
 const config = {
   main: {
-    input: resolvePath('src', 'shared', 'api', 'schema.yaml'),
+    input: resolvePath('src', 'app', 'api', 'schema.yaml'),
     output: {
-      target: resolvePath('src', 'shared', 'api', 'generated', 'endpoints.ts'),
+      target: resolvePath('src', 'app', 'api', 'generated', 'endpoints.ts'),
       prettier: true,
       client: 'react-query',
       mode: 'split',
       override: {
         mutator: {
-          path: resolvePath('src', 'shared', 'api', 'axios.ts'),
+          path: resolvePath('src', 'app', 'api', 'axios.ts'),
           name: 'createInstance',
         },
       },
