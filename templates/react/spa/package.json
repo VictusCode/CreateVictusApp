@@ -17,7 +17,7 @@
     "api": "npm run api:download && npm run api:generate",
     "bundle:visualize": "npx vite-bundle-visualizer -c ./configs/build/vite.config.ts"
   },
-  "author": "",
+  "author": "Ruslan Rystsov",
   "license": "ISC",
   "devDependencies": {
     "@tanstack/router-cli": "^1.16.5",

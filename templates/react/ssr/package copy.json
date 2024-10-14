@@ -1,0 +1,62 @@
+{
+  "name": "victus-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "clean": "npx rimraf dist",
+    "format": "prettier --write '{src,stylesheets}/**/*.{js,ts,jsx,tsx,html,scss,json,md,mdx}'",
+    "lint": "eslint  \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "api:download": "wget localhost:5000/api-yaml -O ./src/app/api/schema.yaml",
+    "api:generate": "orval generate --config ./configs/api/orval.config.ts",
+    "api": "npm run api:download && npm run api:generate"
+  },
+  "license": "ISC",
+  "author": "Ruslan Rystsov",
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.2.14"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint-config-next": "14.2.14",
+    "eslint": "^8.56.0",
+    "eslint-plugin-i18next": "^5.2.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "lint-staged": "^15.2.0",
+    "orval": "^6.29.1",
+    "prettier": "2.8.3",
+    "react-i18next": "13.5.0",
+    "i18next": "^23.7.16",
+    "i18next-browser-languagedetector": "^6.1.8",
+    "i18next-http-backend": "^1.4.5",
+    "husky": "^7.0.4",
+    "@typescript-eslint/eslint-plugin": "8.1.0",
+    "@typescript-eslint/parser": "6.18.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "jotai": "^2.9.3",
+    "axios": "^0.26.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ],
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  }
+}
