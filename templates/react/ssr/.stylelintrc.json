@@ -1,0 +1,52 @@
+{
+    "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-css-modules"
+    ],
+    "plugins": [
+        "stylelint-scss"
+    ],
+    "rules": {
+        "selector-class-pattern": [
+            "^[a-z]+([A-Z][a-z]*)*$",
+            {
+                "message": "Selector should be written in camelCase (selector-class-pattern)"
+            }
+        ],
+        "at-rule-no-unknown": null,
+        "scss/at-rule-no-unknown": true,
+        "indentation": 2,
+        "string-quotes": "single",
+        "no-duplicate-selectors": true,
+        "color-hex-case": "lower",
+        "color-hex-length": "long",
+        "color-named": "never",
+        "selector-combinator-space-after": "always",
+        "selector-attribute-quotes": "always",
+        "selector-attribute-operator-space-before": "always",
+        "selector-attribute-operator-space-after": "always",
+        "selector-attribute-brackets-space-inside": "always",
+        "declaration-block-trailing-semicolon": "always",
+        "declaration-colon-space-before": "never",
+        "declaration-colon-space-after": "always",
+        "property-no-vendor-prefix": true,
+        "value-no-vendor-prefix": true,
+        "number-leading-zero": "always",
+        "function-url-quotes": "always",
+        "font-weight-notation": "numeric",
+        "font-family-name-quotes": "always-where-required",
+        "comment-whitespace-inside": "always",
+        "comment-empty-line-before": "never",
+        "at-rule-no-vendor-prefix": true,
+        "selector-pseudo-class-parentheses-space-inside": "never",
+        "selector-no-vendor-prefix": true,
+        "media-feature-range-operator-space-before": "always",
+        "media-feature-range-operator-space-after": "always",
+        "media-feature-parentheses-space-inside": "always",
+        "media-feature-name-no-vendor-prefix": true,
+        "media-feature-colon-space-before": "never",
+        "media-feature-colon-space-after": "always",
+        "declaration-block-no-redundant-longhand-properties": null,
+        "rule-empty-line-before": "always"
+    }
+}

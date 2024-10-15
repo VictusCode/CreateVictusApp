@@ -1,5 +1,5 @@
-import { queryConfig } from '@app/configs/api';
 import { QueryClient } from '@tanstack/react-query';
+import { queryConfig } from '../configs/api';
 
 const queryClient = new QueryClient(queryConfig);
 

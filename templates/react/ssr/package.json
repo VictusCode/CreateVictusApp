@@ -18,8 +18,13 @@
   "dependencies": {
     "@tanstack/react-query": "^5.17.7",
     "@tanstack/react-query-devtools": "^5.24.0",
+    "@trpc/client": "^11.0.0-rc.446",
+    "@trpc/react-query": "^11.0.0-rc.446",
+    "@trpc/server": "^11.0.0-rc.446",
     "axios": "^0.26.1",
     "jotai": "^2.9.3",
+    "superjson": "^2.2.1",
+    "zod": "^3.23.3",
     "next": "14.2.14",
     "react": "^18",
     "react-aria-components": "^1.4.0",

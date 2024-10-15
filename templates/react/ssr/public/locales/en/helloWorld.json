@@ -1,0 +1,14 @@
+{
+  "widget": {
+    "banner" :{
+      "bigIcon": {
+        "alt": "Create Victus App"
+      },
+      "stackList":{
+        "typeScript":{
+          "alt": "TypeScript"
+        }
+      }
+    }
+  }
+}

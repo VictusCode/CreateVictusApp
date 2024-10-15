@@ -1,5 +1,5 @@
-import { axiosConfig } from '@app/configs/api';
-import axios, { AxiosError, AxiosRequestConfig } from 'axios';
+import { axiosConfig } from '@core/configs/api';
+import axios, { type AxiosError, type AxiosRequestConfig } from 'axios';
 
 const API = axios.create(axiosConfig);
 
