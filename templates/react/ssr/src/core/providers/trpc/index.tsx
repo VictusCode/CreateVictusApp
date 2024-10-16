@@ -14,7 +14,7 @@ export type RouterInputsType = inferRouterInputs<AppRouterType>;
 
 export type RouterOutputsType = inferRouterOutputs<AppRouterType>;
 
-export function TRPCReactProvider(props: { children: React.ReactNode }) {
+const  TRPCProvider = (props: { children: React.ReactNode }) => {
   const queryClient = getQueryClient();
 
   const [trpcClient] = useState(() =>
@@ -51,3 +51,5 @@ const getBaseUrl = () => {
 
   return `http://localhost:${process.env.PORT ?? 3000}`;
 };
+
+export { TRPCProvider}
