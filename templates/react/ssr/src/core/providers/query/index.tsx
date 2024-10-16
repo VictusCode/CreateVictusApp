@@ -1,14 +1,14 @@
-import { queryConfig } from '@app/configs/api';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { getQueryClient } from '@/core/api/query';
+import { QueryClientProvider } from '@tanstack/react-query';
 
-const queryClient = new QueryClient(queryConfig);
-
-type Props = {
+interface Props {
   children: React.ReactNode;
+}
+
+const QueryProvider = ({ children }: Props) => {
+  const queryClient = getQueryClient();
+
+  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
 
-const QueryProvider = ({ children }: Props) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
-
-export { QueryProvider, queryClient };
+export { QueryProvider };
