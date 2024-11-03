@@ -8,7 +8,7 @@ const config = {
   title: 'VictusCode App',
   tagline: 'Open Sours Code Generator And Architecture',
   favicon: 'img/logo.svg',
-  url: 'https://github.com', // TODO change to the real URL
+  url: 'https://create-victus-app.vercel.app',
   baseUrl: '/',
   organizationName: 'VictusCode',
   projectName: 'CreateVictusApp',
@@ -16,15 +16,15 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ua'],
+    locales: ['en', 'uk'],
     localeConfigs: {
       en: {
         label: 'English',
         htmlLang: 'en',
       },
-      ua: {
+      uk: {
         label: 'Українська',
-        htmlLang: 'ua',
+        htmlLang: 'uk',
       },
     },
   },
@@ -68,13 +68,13 @@ const config = {
             label: 'Documentation',
           },
           {
-            label: 'Quickstart',
-            href: '/docs/quickstart',
+            label: 'Intro',
+            href: '/docs/intro',
             position: 'left',
           },
           {
             label: 'Frontend Architecture',
-            href: '/docs/architecture/frontend',
+            href: '/docs/architecture/frontend/overview',
             position: 'left',
           },
           {
@@ -100,8 +100,8 @@ const config = {
             title: 'Code Generator',
             items: [
               {
-                label: 'Quickstart',
-                to: '/docs/quickstart',
+                label: 'Intro',
+                to: '/docs/intro',
               },
             ],
           },
@@ -110,7 +110,7 @@ const config = {
             items: [
               {
                 label: 'Frontend',
-                to: '/docs/architecture/frontend',
+                to: '/docs/architecture/frontend/overview',
               },
             ],
           },

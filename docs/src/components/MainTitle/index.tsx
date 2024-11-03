@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Code, Container, Group, Text, Tooltip } from '@mantine/core';
+import React from 'react';
+import { Button, Code, Container, Text } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { IconCopy } from '@tabler/icons-react';
 import { AnimatedBackground } from './background';
