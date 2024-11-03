@@ -5,6 +5,7 @@ import { IconCopy } from '@tabler/icons-react';
 import { AnimatedBackground } from './background';
 import classes from './styles.module.css';
 import { createVictusAppCommand } from './config';
+import { Frameworks } from './frameworks';
 
 const MainTitle = () => {
   const handleCopy = () => {
@@ -23,13 +24,14 @@ const MainTitle = () => {
       <Container className={classes.inner}>
         <h1 className={classes.title}>
           <Text component='span' inherit td='underline'>
-            Production ready
+            Production Ready
           </Text>{' '}
           and{' '}
           <Text component='span' inherit td='underline'>
             Painless
           </Text>{' '}
-          way to develop
+          way to develop{' '} 
+          <Frameworks />
         </h1>
         <Text className={classes.description} fw={700}>
           Minimal boilerplate • Scalable • Flexible • Automized

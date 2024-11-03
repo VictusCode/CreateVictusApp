@@ -22,7 +22,7 @@
     "noEmit": true,
     "module": "esnext",
     "moduleResolution": "Bundler",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
