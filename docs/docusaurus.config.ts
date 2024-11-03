@@ -1,6 +1,4 @@
 // @ts-check
-import { ThemeConfig } from '@docusaurus/preset-classic';
-import { type } from 'os';
 import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
@@ -42,7 +40,7 @@ const config = {
           editUrl: 'https://github.com/VictusCode/CreateVictusApp/tree/master/docs/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/global/custom.css'),
         },
       },
     ],
@@ -62,14 +60,8 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Documentation',
-          },
-          {
-            label: 'Intro',
-            href: '/docs/intro',
+            label: 'Quick Start',
+            href: '/docs/quickStart',
             position: 'left',
           },
           {
@@ -97,11 +89,11 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Code Generator',
+            title: 'Templates',
             items: [
               {
-                label: 'Intro',
-                to: '/docs/intro',
+                label: 'Quick Start',
+                to: '/docs/quickStart',
               },
             ],
           },

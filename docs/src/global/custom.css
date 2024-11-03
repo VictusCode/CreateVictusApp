@@ -43,5 +43,11 @@
 }
 
 .footer {
-  background-color: #1e1e1e;
+  background-color: #111111;
+}
+
+.navbar {
+  background: #12121252;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }

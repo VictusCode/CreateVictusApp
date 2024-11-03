@@ -18,7 +18,7 @@ const AnimatedBackground = () => {
           key={index}
           style={{
             width,
-            animationDelay: `${index * 0.2}s`,
+            animationDelay: `${index * 0.1}s`,
           }}
         />
       ))}

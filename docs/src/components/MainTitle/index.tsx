@@ -4,16 +4,17 @@ import { notifications } from '@mantine/notifications';
 import { IconCopy } from '@tabler/icons-react';
 import { AnimatedBackground } from './background';
 import classes from './styles.module.css';
+import { createVictusAppCommand } from './config';
 
 const MainTitle = () => {
   const handleCopy = () => {
     notifications.show({
       title: 'Copied to clipboard',
       color: '#e7a103',
-      message: 'npx victus-app app_name',
+      message: createVictusAppCommand,
     });
 
-    navigator?.clipboard?.writeText('npx victus-app app_name');
+    navigator?.clipboard?.writeText(createVictusAppCommand);
   };
 
   return (
@@ -35,7 +36,7 @@ const MainTitle = () => {
         </Text>
 
         <Code className={classes.code}>
-          npx victus-app app_name
+          {createVictusAppCommand}
           <Button className={classes.copyButton} onClick={handleCopy}>
             <IconCopy />
           </Button>

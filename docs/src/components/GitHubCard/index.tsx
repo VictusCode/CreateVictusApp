@@ -1,6 +1,6 @@
 import { Center, Paper, rem, Text, ThemeIcon } from '@mantine/core';
 import { IconBrandGithub } from '@tabler/icons-react';
-import classes from './index.module.css';
+import classes from './styles.module.css';
 
 const GithubCard = () => (
   <Center mx='1rem' mt='2rem'>

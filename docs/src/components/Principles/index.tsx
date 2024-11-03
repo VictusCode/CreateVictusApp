@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Container, rem, SimpleGrid, Text, Title } from '@mantine/core';
-import { IconArrowsDiagonal2, IconBadge4k, IconBrandGithub, IconBugOff, IconCloud, IconMaximize, IconMinus, IconRocket, IconSparkles, IconTool, IconTools, IconUser } from '@tabler/icons-react';
-import classes from './index.module.css';
+import { IconArrowsDiagonal2, IconBrandGithub,  IconRocket, IconSparkles, IconTools } from '@tabler/icons-react';
+import classes from './styles.module.css';
 import { MinimalBoilerplateIcon } from '@site/src/icons/minimalBoilerplate';
 
 const principlesData = [
