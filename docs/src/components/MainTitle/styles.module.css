@@ -1,0 +1,123 @@
+.wrapper {
+  position: static;
+  box-sizing: border-box;
+  background-color: var(--mantine-color-dark-8);
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+  min-width: 100vw;
+  height: calc(70vh + 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 25%;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding: 0 5%;
+  }
+}
+
+.title {
+  font-family:
+    Greycliff CF,
+    var(--mantine-font-family);
+  font-size: rem(62px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: rem(42px);
+    line-height: 1.2;
+  }
+}
+
+.description {
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  margin-top: var(--mantine-spacing-xl);
+  font-size: rem(24px);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: rem(18px);
+  }
+}
+
+.controls {
+  margin-top: calc(var(--mantine-spacing-xl) * 2);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    margin-top: var(--mantine-spacing-xl);
+  }
+}
+
+.control {
+  height: rem(54px);
+  padding-left: rem(38px);
+  padding-right: rem(38px);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    height: rem(54px);
+    padding-left: rem(18px);
+    padding-right: rem(18px);
+    flex: 1;
+  }
+}
+
+.animatedBackground {
+  background: linear-gradient(180deg, #843cd4, #ab63f8, #e7a103, #febe29, #843cd4);
+  background-size: 100% 300%;
+  animation: gradientFlow 8s linear infinite;
+  height: 70dvh;
+  width: 100vw;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+}
+
+.animatedBackgroundLine {
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #843cd4, #ab63f8, #e7a103, #febe29, #843cd4);
+  background-size: 100% 300%;
+  animation: gradientFlow 8s linear infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 50% 0%;
+  }
+
+  100% {
+    background-position: 50% 300%;
+  }
+}
+
+.code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: var(--mantine-spacing-xl);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: var(--mantine-spacing-md);
+  justify-content: space-between;
+  position: relative;
+}
+
+.copyButton {
+  height: 3rem !important;
+  width: 3rem !important;
+  padding: 8px !important;
+  background: #1e1e1e !important;
+}

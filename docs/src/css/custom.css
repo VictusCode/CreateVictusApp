@@ -1,0 +1,47 @@
+:root {
+  --bg-color: #ffffff;
+  --paper-bg-color: #ffffff;
+  --paper-bg-secondary-color: #fafafa;
+  --paper-border: #e4e4e7;
+
+  --primary-color: #843cd4;
+  --secondary-color: #111111;
+  --secondary-invert-color: #e7e7e7;
+  --tertiary-color: #292929;
+  --accent-color: #e7a103;
+
+  --ifm-color-primary: var(--primary-color);
+  --ifm-color-primary-dark: color-mix(in rgb, var(--primary-color), black, 5%);
+  --ifm-color-primary-darker: color-mix(in rgb, var(--primary-color), black, 10%);
+  --ifm-color-primary-darkest: color-mix(in rgb, var(--primary-color), black, 20%);
+  --ifm-color-primary-light: color-mix(in rgb, var(--primary-color), white, 5%);
+  --ifm-color-primary-lighter: color-mix(in rgb, var(--primary-color), white, 10%);
+  --ifm-color-primary-lightest: color-mix(in rgb, var(--primary-color), white, 20%);
+  --docusaurus-highlighted-code-line-bg: #1e1e1e;
+}
+
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --paper-bg-color: #1e1e1e;
+  --paper-bg-secondary-color: #272727;
+  --paper-border: #303030;
+
+  --primary-color: #843cd4;
+  --secondary-color: #e7e7e7;
+  --secondary-invert-color: #111111;
+  --tertiary-color: #969696;
+  --accent-color: #e7a103;
+
+  --ifm-color-primary: var(--primary-color);
+  --ifm-color-primary-dark: color-mix(in rgb, var(--primary-color), black, 5%);
+  --ifm-color-primary-darker: color-mix(in rgb, var(--primary-color), black, 10%);
+  --ifm-color-primary-darkest: color-mix(in rgb, var(--primary-color), black, 20%);
+  --ifm-color-primary-light: color-mix(in rgb, var(--primary-color), white, 5%);
+  --ifm-color-primary-lighter: color-mix(in rgb, var(--primary-color), white, 10%);
+  --ifm-color-primary-lightest: color-mix(in rgb, var(--primary-color), white, 20%);
+  --docusaurus-highlighted-code-line-bg: #1e1e1e;
+}
+
+.footer {
+  background-color: #1e1e1e;
+}

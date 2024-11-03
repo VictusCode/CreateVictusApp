@@ -10,7 +10,6 @@
         "node_modules",
         "**/node_modules/*",
         "dist",
-        "templates"
     ],
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
