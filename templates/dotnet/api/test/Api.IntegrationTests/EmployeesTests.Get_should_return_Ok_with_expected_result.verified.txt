@@ -1,0 +1,15 @@
+{
+  Status: 200 OK,
+  Content: {
+    Headers: {
+      Content-Type: application/json; charset=utf-8
+    },
+    Value: {
+      id: 1,
+      birthDate: DateTimeOffset_1,
+      firstName: Thomas,
+      lastName: Anderson,
+      gender: M
+    }
+  }
+}

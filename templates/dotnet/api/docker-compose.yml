@@ -1,0 +1,34 @@
+---
+# docker compose up -d
+# docker compose up --build
+# docker compose down
+# docker compose down -v
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  api:
+    image: api:compose
+    container_name: api
+    build:
+      context: .
+    ports:
+      - "5000:8080"
+    environment:
+      - FeatureManagement__DockerCompose=true
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:

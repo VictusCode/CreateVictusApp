@@ -1,0 +1,10 @@
+**/bin/
+**/obj/
+**/*.user
+
+.*/
+
+db
+test
+src/Db
+**/appsettings.Development.json

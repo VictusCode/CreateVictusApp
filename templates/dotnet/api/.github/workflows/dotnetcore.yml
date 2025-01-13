@@ -1,0 +1,87 @@
+---
+name: Build, Test, Code coverage
+
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - '**.md'
+
+  pull_request:
+    branches: [master]
+    paths-ignore:
+      - '**.md'
+
+  workflow_dispatch:
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  EXCLUDE_PATHS: '\"**/Program.cs,**/Startup.cs,**/*Context.cs\"'
+
+jobs:
+  build-and-test:
+    name: dotnet Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print info
+        run: |
+          echo User $GITHUB_ACTOR triggered build on $GITHUB_REF by $GITHUB_SHA commit.
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+
+      - name: Build sln
+        run: dotnet build -c Release ./HappyCode.NetCoreBoilerplate.sln
+
+      - name: Test sln
+        run: dotnet test -c Release --no-build ./HappyCode.NetCoreBoilerplate.sln
+
+  collect-unit-test-coverage:
+    name: Unit test code coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+
+      - name: Collect code coverage
+        run: dotnet test --filter UnitTests "/p:ExcludeByFile=${{ env.EXCLUDE_PATHS }}" /maxcpucount:1 /p:WarningLevel=0 /p:CollectCoverage=true /p:CoverletOutput="../" /p:MergeWith="../coverage.json" /p:CoverletOutputFormat=\"json,opencover\" ./HappyCode.NetCoreBoilerplate.sln
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./test/coverage.opencover.xml
+          flags: unit
+
+  collect-integration-test-coverage:
+    name: Integration test code coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+
+      - name: Collect code coverage
+        run: dotnet test --filter IntegrationTests "/p:ExcludeByFile=${{ env.EXCLUDE_PATHS }}" /maxcpucount:1 /p:WarningLevel=0 /p:CollectCoverage=true /p:CoverletOutput="../" /p:MergeWith="../coverage.json" /p:CoverletOutputFormat=\"json,opencover\" ./HappyCode.NetCoreBoilerplate.sln
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./test/coverage.opencover.xml
+          flags: integration

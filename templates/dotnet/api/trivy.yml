@@ -1,0 +1,15 @@
+---
+severity:
+  - HIGH
+  - CRITICAL
+
+scan:
+  scanners:
+    - vuln
+    - secret
+    - misconfig
+  skip-dirs:
+    - test
+
+vulnerability:
+  ignore-unfixed: true
