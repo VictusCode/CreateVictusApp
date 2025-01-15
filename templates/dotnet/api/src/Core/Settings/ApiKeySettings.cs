@@ -1,7 +1,7 @@
-namespace HappyCode.NetCoreBoilerplate.Api.Infrastructure.Configurations
+namespace Api.Infrastructure.Configurations
 {
-    public class ApiKeySettings
-    {
-        public string SecretKey { get; set; }
-    }
+  public class ApiKeySettings
+  {
+    public string SecretKey { get; set; }
+  }
 }

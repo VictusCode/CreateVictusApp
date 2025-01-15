@@ -1,20 +1,20 @@
-using HappyCode.NetCoreBoilerplate.Core.Dtos;
-using HappyCode.NetCoreBoilerplate.Core.Models;
+using Core.Dtos;
+using Core.Models;
 
-namespace HappyCode.NetCoreBoilerplate.Core.Extensions
+namespace Core.Extensions
 {
-    internal static class EmployeeExtensions
+  internal static class EmployeeExtensions
+  {
+    public static EmployeeDto MapToDto(this Employee source)
     {
-        public static EmployeeDto MapToDto(this Employee source)
-        {
-            return new EmployeeDto
-            {
-                Id = source.EmpNo,
-                FirstName = source.FirstName,
-                LastName = source.LastName,
-                BirthDate = source.BirthDate,
-                Gender = source.Gender,
-            };
-        }
+      return new EmployeeDto
+      {
+        Id = source.EmpNo,
+        FirstName = source.FirstName,
+        LastName = source.LastName,
+        BirthDate = source.BirthDate,
+        Gender = source.Gender,
+      };
     }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "HappyCode.NetCoreBoilerplate.Api": {
+    "Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

@@ -1,9 +1,9 @@
-namespace HappyCode.NetCoreBoilerplate.Core.Dtos
+namespace Core.Dtos
 {
-    public class CarDto
-    {
-        public int Id { get; set; }
-        public string Plate { get; set; }
-        public string Model { get; set; }
-    }
+  public class CarDto
+  {
+    public int Id { get; set; }
+    public string Plate { get; set; }
+    public string Model { get; set; }
+  }
 }

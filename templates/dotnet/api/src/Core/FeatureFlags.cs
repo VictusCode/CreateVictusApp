@@ -1,10 +1,10 @@
-namespace HappyCode.NetCoreBoilerplate.Core
+namespace Core
 {
-    public enum FeatureFlags
-    {
-        ApiKey,
-        DockerCompose,
-        Santa,
-        ConnectionInfo,
-    }
+  public enum FeatureFlags
+  {
+    ApiKey,
+    DockerCompose,
+    Santa,
+    ConnectionInfo,
+  }
 }

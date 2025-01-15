@@ -19,6 +19,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\HappyCode.NetCoreBoilerplate.BooksModule\HappyCode.NetCoreBoilerplate.BooksModule.csproj" />
+    <ProjectReference Include="..\..\src\BooksModule\BooksModule.csproj" />
   </ItemGroup>
 </Project>

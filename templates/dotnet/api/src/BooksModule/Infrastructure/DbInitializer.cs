@@ -1,14 +1,15 @@
 using System.Data;
 using System.Diagnostics.CodeAnalysis;
+using BooksModule.Dtos;
 using Dapper;
-using HappyCode.NetCoreBoilerplate.BooksModule.Dtos;
 
-namespace HappyCode.NetCoreBoilerplate.BooksModule.Infrastructure;
+namespace BooksModule.Infrastructure;
 
 [ExcludeFromCodeCoverage]
 internal class DbInitializer
 {
-    private static readonly string _createBooks = @$"
+  private static readonly string _createBooks =
+    @$"
 CREATE TABLE IF NOT EXISTS Books
 (
     {nameof(BookDto.Id)}        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -16,21 +17,23 @@ CREATE TABLE IF NOT EXISTS Books
 )
 ";
 
-    private readonly IDbConnection _db;
+  private readonly IDbConnection _db;
 
-    public DbInitializer(IDbConnection db)
+  public DbInitializer(IDbConnection db)
+  {
+    _db = db;
+  }
+
+  public void Init()
+  {
+    _db.Execute(_createBooks);
+
+    var count = _db.ExecuteScalar<int>(
+      "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name = 'Books'"
+    );
+    if (count == 0)
     {
-        _db = db;
+      throw new ApplicationException("SQLite DB not initialized properly");
     }
-
-    public void Init()
-    {
-        _db.Execute(_createBooks);
-
-        var count = _db.ExecuteScalar<int>("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name = 'Books'");
-        if (count == 0)
-        {
-            throw new ApplicationException("SQLite DB not initialized properly");
-        }
-    }
+  }
 }

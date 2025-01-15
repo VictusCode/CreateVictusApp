@@ -1,8 +1,8 @@
-namespace HappyCode.NetCoreBoilerplate.Db.Options
+namespace Db.Options
 {
-    public class UpgradeOptions
-    {
-        public int CommandExecutionTimeoutSeconds { get; set; }
-        public string ScriptsAndCodePattern { get; set; }
-    }
+  public class UpgradeOptions
+  {
+    public int CommandExecutionTimeoutSeconds { get; set; }
+    public string ScriptsAndCodePattern { get; set; }
+  }
 }

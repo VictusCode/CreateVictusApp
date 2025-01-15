@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/src/HappyCode.NetCoreBoilerplate.Api/HappyCode.NetCoreBoilerplate.Api.csproj",
+        "${workspaceFolder}/src/Api/Api.csproj",
         "-c",
         "Debug",
       ],

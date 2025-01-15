@@ -1,40 +1,40 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using HappyCode.NetCoreBoilerplate.Core;
+using Core;
 using Microsoft.FeatureManagement;
 using Microsoft.FeatureManagement.Mvc;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace HappyCode.NetCoreBoilerplate.Api.Infrastructure.Filters
+namespace Api.Infrastructure.Filters
 {
-    [ExcludeFromCodeCoverage]
-    public class FeatureFlagSwaggerDocumentFilter : IDocumentFilter
+  [ExcludeFromCodeCoverage]
+  public class FeatureFlagSwaggerDocumentFilter : IDocumentFilter
+  {
+    private readonly IFeatureManager _featureManager;
+
+    public FeatureFlagSwaggerDocumentFilter(IFeatureManager featureManager)
     {
-        private readonly IFeatureManager _featureManager;
-
-        public FeatureFlagSwaggerDocumentFilter(IFeatureManager featureManager)
-        {
-            _featureManager = featureManager;
-        }
-
-        public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
-        {
-            var featureFlags = new Dictionary<string, bool>();
-            foreach (var item in Enum.GetNames<FeatureFlags>())
-            {
-                featureFlags.Add(item, _featureManager.IsEnabledAsync(item).GetAwaiter().GetResult());
-            }
-
-            foreach (var apiDescription in context.ApiDescriptions)
-            {
-                var featureGates = apiDescription.CustomAttributes().OfType<FeatureGateAttribute>();
-                if (featureGates.SelectMany(x => x.Features).Any(f => !featureFlags[f]))
-                {
-                    var route = "/" + apiDescription.RelativePath.TrimEnd('/');
-                    swaggerDoc.Paths.Remove(route);
-                }
-            }
-        }
+      _featureManager = featureManager;
     }
+
+    public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
+    {
+      var featureFlags = new Dictionary<string, bool>();
+      foreach (var item in Enum.GetNames<FeatureFlags>())
+      {
+        featureFlags.Add(item, _featureManager.IsEnabledAsync(item).GetAwaiter().GetResult());
+      }
+
+      foreach (var apiDescription in context.ApiDescriptions)
+      {
+        var featureGates = apiDescription.CustomAttributes().OfType<FeatureGateAttribute>();
+        if (featureGates.SelectMany(x => x.Features).Any(f => !featureFlags[f]))
+        {
+          var route = "/" + apiDescription.RelativePath.TrimEnd('/');
+          swaggerDoc.Paths.Remove(route);
+        }
+      }
+    }
+  }
 }

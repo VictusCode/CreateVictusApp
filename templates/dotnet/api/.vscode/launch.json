@@ -9,9 +9,9 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/src/HappyCode.NetCoreBoilerplate.Api/bin/Debug/net8.0/HappyCode.NetCoreBoilerplate.Api.dll",
+      "program": "${workspaceFolder}/src/Api/bin/Debug/net8.0/Api.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/src/HappyCode.NetCoreBoilerplate.Api",
+      "cwd": "${workspaceFolder}/src/Api",
       "stopAtEntry": false,
       "serverReadyAction": {
         "action": "openExternally",

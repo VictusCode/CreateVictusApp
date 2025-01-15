@@ -1,8 +1,8 @@
-namespace HappyCode.NetCoreBoilerplate.Core.Settings
+namespace Core.Settings
 {
-    public class PingWebsiteSettings
-    {
-        public Uri Url { get; set; }
-        public int TimeIntervalInMinutes { get; set; }
-    }
+  public class PingWebsiteSettings
+  {
+    public Uri Url { get; set; }
+    public int TimeIntervalInMinutes { get; set; }
+  }
 }

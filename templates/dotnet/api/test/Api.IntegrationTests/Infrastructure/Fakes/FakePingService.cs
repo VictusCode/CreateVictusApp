@@ -1,12 +1,12 @@
 using System.Net;
-using HappyCode.NetCoreBoilerplate.Api.BackgroundServices;
+using Api.BackgroundServices;
 
-namespace HappyCode.NetCoreBoilerplate.Api.IntegrationTests.Infrastructure.Fakes
+namespace Api.IntegrationTests.Infrastructure.Fakes
 {
-    public class FakePingService : IPingService
-    {
-        internal const HttpStatusCode Result = HttpStatusCode.EarlyHints;
+  public class FakePingService : IPingService
+  {
+    internal const HttpStatusCode Result = HttpStatusCode.EarlyHints;
 
-        public HttpStatusCode WebsiteStatusCode => Result;
-    }
+    public HttpStatusCode WebsiteStatusCode => Result;
+  }
 }

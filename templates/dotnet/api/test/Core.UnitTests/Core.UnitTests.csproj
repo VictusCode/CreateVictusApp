@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <RunSettingsFilePath>$(MSBuildProjectDirectory)\HappyCode.NetCoreBoilerplate.Api.UnitTests.runsettings</RunSettingsFilePath>
+    <RunSettingsFilePath>$(MSBuildProjectDirectory)\Core.UnitTests.runsettings</RunSettingsFilePath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,19 +12,17 @@
     </PackageReference>
     <PackageReference Include="FluentAssertions" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Moq" />
+    <PackageReference Include="MockQueryable.Moq" />
     <PackageReference Include="Moq.AutoMock" />
+    <PackageReference Include="Moq" />
     <PackageReference Include="xunit" />
     <PackageReference Include="xunit.runner.visualstudio">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Net.Http" />
-  </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\HappyCode.NetCoreBoilerplate.Api\HappyCode.NetCoreBoilerplate.Api.csproj" />
+    <ProjectReference Include="..\..\src\Core\Core.csproj" />
   </ItemGroup>
 </Project>

@@ -1,59 +1,55 @@
-using HappyCode.NetCoreBoilerplate.Core.Models;
+using Core.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace HappyCode.NetCoreBoilerplate.Core
+namespace Core
 {
-    public partial class EmployeesContext : DbContext
+  public partial class EmployeesContext : DbContext
+  {
+    public EmployeesContext(DbContextOptions<EmployeesContext> options)
+      : base(options) { }
+
+    public virtual DbSet<Department> Departments { get; set; }
+    public virtual DbSet<Employee> Employees { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        public EmployeesContext(DbContextOptions<EmployeesContext> options)
-            : base(options)
-        {
-        }
+      modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
-        public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
+      modelBuilder.Entity<Department>(entity =>
+      {
+        entity.HasIndex(e => e.DeptName).HasDatabaseName("dept_name").IsUnique();
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+        entity.HasIndex(e => e.MangerNo).HasDatabaseName("manger_no");
 
-            modelBuilder.Entity<Department>(entity =>
-            {
-                entity.HasIndex(e => e.DeptName)
-                    .HasDatabaseName("dept_name")
-                    .IsUnique();
+        entity.Property(e => e.DeptNo).ValueGeneratedNever();
 
-                entity.HasIndex(e => e.MangerNo)
-                    .HasDatabaseName("manger_no");
+        entity.Property(e => e.DeptName).IsUnicode(false);
 
-                entity.Property(e => e.DeptNo).ValueGeneratedNever();
+        entity
+          .HasOne(d => d.Manger)
+          .WithMany(p => p.LeadingDepartments)
+          .HasForeignKey(d => d.MangerNo)
+          .OnDelete(DeleteBehavior.Cascade)
+          .HasConstraintName("departments_ibfk_1");
+      });
 
-                entity.Property(e => e.DeptName).IsUnicode(false);
+      modelBuilder.Entity<Employee>(entity =>
+      {
+        entity.HasIndex(e => e.DeptNo).HasDatabaseName("dept_no");
 
-                entity.HasOne(d => d.Manger)
-                    .WithMany(p => p.LeadingDepartments)
-                    .HasForeignKey(d => d.MangerNo)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("departments_ibfk_1");
-            });
+        entity.Property(e => e.EmpNo).ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Employee>(entity =>
-            {
-                entity.HasIndex(e => e.DeptNo)
-                    .HasDatabaseName("dept_no");
+        entity.Property(e => e.FirstName).IsUnicode(false);
 
-                entity.Property(e => e.EmpNo).ValueGeneratedOnAdd();
+        entity.Property(e => e.LastName).IsUnicode(false);
 
-                entity.Property(e => e.FirstName).IsUnicode(false);
-
-                entity.Property(e => e.LastName).IsUnicode(false);
-
-                entity.HasOne(d => d.Department)
-                    .WithMany(p => p.Employees)
-                    .HasForeignKey(d => d.DeptNo)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("employees_ibfk_1");
-            });
-        }
+        entity
+          .HasOne(d => d.Department)
+          .WithMany(p => p.Employees)
+          .HasForeignKey(d => d.DeptNo)
+          .OnDelete(DeleteBehavior.Cascade)
+          .HasConstraintName("employees_ibfk_1");
+      });
     }
+  }
 }

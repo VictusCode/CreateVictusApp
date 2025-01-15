@@ -1,20 +1,24 @@
-using Dapper;
-using HappyCode.NetCoreBoilerplate.BooksModule.Dtos;
 using System.Data;
+using BooksModule.Dtos;
+using Dapper;
 
-namespace HappyCode.NetCoreBoilerplate.BooksModule.IntegrationTests.Infrastructure.DataFeeders
+namespace BooksModule.IntegrationTests.Infrastructure.DataFeeders
 {
-    internal static class BooksDataFeeder
+  internal static class BooksDataFeeder
+  {
+    public static void Feed(IDbConnection db)
     {
-        public static void Feed(IDbConnection db)
-        {
-            db.Execute(@$"
+      db.Execute(
+        @$"
 INSERT INTO Books ({nameof(BookDto.Id)}, {nameof(BookDto.Title)})
-    VALUES(1, 'C# book');");
+    VALUES(1, 'C# book');"
+      );
 
-            db.Execute(@$"
+      db.Execute(
+        @$"
 INSERT INTO Books ({nameof(BookDto.Id)}, {nameof(BookDto.Title)})
-    VALUES(2, '.NET book');");
-        }
+    VALUES(2, '.NET book');"
+      );
     }
+  }
 }

@@ -1,13 +1,13 @@
-namespace HappyCode.NetCoreBoilerplate.Core.Repositories
+namespace Core.Repositories
 {
-    internal abstract class RepositoryBase<TEntity>
-        where TEntity : class
-    {
-        protected EmployeesContext DbContext { get; }
+  internal abstract class RepositoryBase<TEntity>
+    where TEntity : class
+  {
+    protected EmployeesContext DbContext { get; }
 
-        protected RepositoryBase(EmployeesContext dbContext)
-        {
-            DbContext = dbContext;
-        }
+    protected RepositoryBase(EmployeesContext dbContext)
+    {
+      DbContext = dbContext;
     }
+  }
 }

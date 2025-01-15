@@ -1,19 +1,19 @@
-using HappyCode.NetCoreBoilerplate.Core.Providers;
-using HappyCode.NetCoreBoilerplate.Core.Repositories;
-using HappyCode.NetCoreBoilerplate.Core.Services;
+using Core.Providers;
+using Core.Repositories;
+using Core.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace HappyCode.NetCoreBoilerplate.Core.Registrations
+namespace Core.Registrations
 {
-    public static class CoreRegistrations
+  public static class CoreRegistrations
+  {
+    public static IServiceCollection AddCoreComponents(this IServiceCollection services)
     {
-        public static IServiceCollection AddCoreComponents(this IServiceCollection services)
-        {
-            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
-            services.AddScoped<ICarService, CarService>();
-            services.AddSingleton<VersionProvider>();
+      services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+      services.AddScoped<ICarService, CarService>();
+      services.AddSingleton<VersionProvider>();
 
-            return services;
-        }
+      return services;
     }
+  }
 }

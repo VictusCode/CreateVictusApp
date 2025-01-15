@@ -5,17 +5,17 @@ on:
   push:
     branches: [master]
     paths-ignore:
-      - '**.md'
+      - "**.md"
 
   pull_request:
     branches: [master]
     paths-ignore:
-      - '**.md'
+      - "**.md"
 
   workflow_dispatch:
 
   schedule:
-    - cron: '0 5 * * Sun'
+    - cron: "0 5 * * Sun"
 
 jobs:
   trivy-scan:
@@ -34,7 +34,7 @@ jobs:
           dotnet-version: 8.x
 
       - name: Build
-        run: dotnet build -c Release ./src/HappyCode.NetCoreBoilerplate.Api/HappyCode.NetCoreBoilerplate.Api.csproj
+        run: dotnet build -c Release ./src/Api/Api.csproj
 
       - name: Manual Trivy Setup
         uses: aquasecurity/setup-trivy@v0.2.2
