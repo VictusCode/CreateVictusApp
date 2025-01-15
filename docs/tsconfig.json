@@ -1,7 +1,6 @@
 {
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    // Basic Options
     "allowJs": true,
     "target": "esnext",
     "skipLibCheck": true,
@@ -9,11 +8,9 @@
     "moduleDetection": "force",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    // Type Checking
     "noUncheckedIndexedAccess": true,
     "checkJs": true,
     "strict": true,
-    // Bundled Module
     "lib": [
       "dom",
       "dom.iterable",
@@ -29,8 +26,7 @@
         "name": "next"
       }
     ],
-    // Path Aliases
-    "baseUrl": ".",
+    "baseUrl": "."
   },
   "include": [
     ".eslintrc.cjs",

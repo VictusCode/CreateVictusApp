@@ -4,7 +4,7 @@ type Props = {
     color: string;
 }
 
-const MinimalBoilerplateIcon = ({ style, stroke ,color}) =>
+const MinimalBoilerplateIcon = ({ style, stroke, color }: Props) =>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={style}>
         <path d="M4 4L20 20" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" />
         <path d="M7.42871 15.4329V11.3615C7.42864 11.1329 7.48631 10.908 7.59635 10.7077C7.7064 10.5073 7.86527 10.338 8.05821 10.2155C8.25115 10.0929 8.47192 10.0211 8.70004 10.0066C8.92815 9.99217 9.15622 10.0356 9.36309 10.1328" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" />

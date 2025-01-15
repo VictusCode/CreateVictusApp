@@ -66,6 +66,9 @@
   overflow: hidden;
   background: linear-gradient(180deg, #843cd4, #ab63f8, #e7a103, #febe29, #843cd4);
   background-size: 100% 300%;
+  box-shadow:
+    -4px 0 20px rgba(255, 255, 255, 0.1),
+    4px 0 20px rgba(0, 0, 0, 0.1);
   animation: gradientFlow 8s linear infinite;
 }
 
@@ -82,8 +85,8 @@
 .code {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
-  color: #fff;
-  background-color: #000;
+  color: #ffffff;
+  background-color: #0000006a !important;
   padding: 1rem;
   border-radius: 0.5rem;
   margin-top: var(--mantine-spacing-xl);
@@ -93,6 +96,7 @@
   gap: var(--mantine-spacing-md);
   justify-content: space-between;
   position: relative;
+  backdrop-filter: blur(10px);
 
   @media (max-width: $mantine-breakpoint-sm) {
     font-size: 1rem;
@@ -104,7 +108,7 @@
   height: 3rem !important;
   width: 3rem !important;
   padding: 8px !important;
-  background: #1e1e1e !important;
+  background-color: #0000006a !important;
   font-size: 1.5rem;
 
   @media (max-width: $mantine-breakpoint-sm) {

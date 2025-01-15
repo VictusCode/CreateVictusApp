@@ -49,5 +49,8 @@
 .navbar {
   background: #12121252;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar__search input {
+  background: #12121252 var(--ifm-navbar-search-input-icon) no-repeat 0.75rem center / 1rem 1rem;
 }

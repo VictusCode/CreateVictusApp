@@ -11,7 +11,8 @@ const MainTitle = () => {
   const handleCopy = () => {
     notifications.show({
       title: 'Copied to clipboard',
-      color: '#e7a103',
+  color: '#e7a103',
+
       message: createVictusAppCommand,
     });
 
@@ -20,7 +21,7 @@ const MainTitle = () => {
 
   return (
     <div className={classes.wrapper}>
-      <AnimatedBackground />
+            <AnimatedBackground />
       <Container className={classes.inner}>
         <h1 className={classes.title}>
           <Text component='span' inherit td='underline'>
